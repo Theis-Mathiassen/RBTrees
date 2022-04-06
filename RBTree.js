@@ -75,10 +75,11 @@ function RBInsertFixup (T, node) {
                 y.color = "BLACK";
                 node.p.p.color = "RED";
                 node = node.p.p;
-            } else if (node === node.p.right) {
-                node = node.p;
-                LeftRotate(T,node);
             } else {
+                if (node === node.p.right) {
+                    node = node.p;
+                    LeftRotate(T,node);
+                }
                 node.p.color = "BLACK";
                 node.p.p.color = "RED";
                 RightRotate(T,node.p.p);
@@ -93,10 +94,11 @@ function RBInsertFixup (T, node) {
                 y.color = "BLACK";
                 node.p.p.color = "RED";
                 node = node.p.p;
-            } else if (node === node.p.left) {
-                node = node.p;
-                LeftRotate(T,node);
             } else {
+                if (node === node.p.left) {
+                    node = node.p;
+                    LeftRotate(T,node);
+                } 
                 node.p.color = "BLACK";
                 node.p.p.color = "RED";
                 RightRotate(T,node.p.p);
